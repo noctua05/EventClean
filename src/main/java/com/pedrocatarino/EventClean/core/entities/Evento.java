@@ -1,10 +1,12 @@
 package com.pedrocatarino.EventClean.core.entities;
 
 import com.pedrocatarino.EventClean.core.entities.enums.TipoEvento;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 import java.time.LocalDateTime;
+
 
 public class Evento {
 
@@ -20,13 +22,12 @@ public class Evento {
 
     String identificador;
 
-    LocalDateTime DataInicio;
+    LocalDateTime dataInicio;
 
-    LocalDateTime DataFim;
+    LocalDateTime dataFim;
 
     Long capacidade;
 
-    @Enumerated(EnumType.STRING)
     TipoEvento tipo;
 
     public void setId(Long id) {
@@ -54,11 +55,11 @@ public class Evento {
     }
 
     public void setDataInicio(LocalDateTime dataInicio) {
-        DataInicio = dataInicio;
+        this.dataInicio = dataInicio;
     }
 
     public void setDataFim(LocalDateTime dataFim) {
-        DataFim = dataFim;
+        this.dataFim = dataFim;
     }
 
     public void setCapacidade(Long capacidade) {
@@ -94,11 +95,11 @@ public class Evento {
     }
 
     public LocalDateTime getDataInicio() {
-        return DataInicio;
+        return dataInicio;
     }
 
     public LocalDateTime getDataFim() {
-        return DataFim;
+        return dataFim;
     }
 
     public Long getCapacidade() {
@@ -107,5 +108,21 @@ public class Evento {
 
     public TipoEvento getTipo() {
         return tipo;
+    }
+
+    public Evento(Long id, String name, String descricao, String local, String organizador, String identificador, LocalDateTime dataInicio, LocalDateTime dataFim, Long capacidade, TipoEvento tipo) {
+        this.id = id;
+        this.name = name;
+        this.descricao = descricao;
+        this.local = local;
+        this.organizador = organizador;
+        this.identificador = identificador;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.capacidade = capacidade;
+        this.tipo = tipo;
+    }
+
+    public Evento() {
     }
 }
