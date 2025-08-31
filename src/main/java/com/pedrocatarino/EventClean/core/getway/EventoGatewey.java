@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface EventoGatewey {
 
-    public void delete(Long id);
+     void delete(Long id);
 
-    public Evento cria(Evento evento);
+     Evento cria(Evento evento);
 
-    public List<Evento> busca();
+    List<Evento> busca();
+
+    boolean existeIdentificador(String identificador);
+
+    Evento findByIdentificador(String identificador);
 }
